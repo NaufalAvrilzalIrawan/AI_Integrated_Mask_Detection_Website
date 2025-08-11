@@ -189,6 +189,40 @@
     </div>
   </div>
 
+  <!-- modal untuk notifikasi kirim MQTT -->
+  <div class="modal fade" id="MQTTModal" tabindex="-1" aria-labelledby="MQTTModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="MQTTModalLabel">Berhasil!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="MQTTMessage">
+        </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- modal untuk notifikasi kontak -->
+  <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="notificationModalLabel">Terima Kasih!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="notificationMessage">
+        </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <footer class="text-center py-4 mt-5 bg-white">
     <p class="text-muted mb-0">© 2025 - Naufal Avrilzal Irawan ✨</p>
   </footer>
@@ -205,6 +239,26 @@
     const labelContainer = document.getElementById("label-container");
     const webcamVideo = document.getElementById("webcamVideo");
     const webcamWrapper = document.getElementById("webcam-wrapper");
+    const contactForm = document.getElementById('contactForm');
+    const notificationModal = new bootstrap.Modal(document.getElementById('notificationModal'));
+    const MQTTModal = new bootstrap.Modal(document.getElementById('MQTTModal'));
+
+    // 'event listener' untuk event 'submit' pada formulir
+    contactForm.addEventListener('submit', function(event) {
+        // Mencegah formulir mengirim data dan me-refresh halaman (perilaku default)
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = `Terima kasih telah menghubungi <strong>${name}</strong>! Informasi lebih lanjut akan kami kirimkan ke alamat email <strong>${email}</strong>.`;
+        const modalMessageBody = document.getElementById('notificationMessage');
+        
+        // Atur isi pesan di dalam modal
+        modalMessageBody.innerHTML = message;
+
+        notificationModal.show();
+        contactForm.reset();
+    });
 
     const modelPath = "https://teachablemachine.withgoogle.com/models/XKucgsRUS/";
     let model, maxPredictions;
@@ -311,7 +365,13 @@
     startButton.addEventListener("click", init);
     mqttButton.addEventListener("click", () => {
       client.publish("hello", latestDetectedClass);
-      alert(`Pesan "${latestDetectedClass}" berhasil dikirim ke MQTT!`);
+      const mqttMessage = `Pesan "${latestDetectedClass}" berhasil dikirim ke MQTT!`;
+      const modalMQTTBody = document.getElementById('MQTTMessage');
+        
+      // Atur isi pesan di dalam modal
+      modalMQTTBody.innerHTML = mqttMessage;
+
+      MQTTModal.show();
     });
     demoModal.addEventListener('hidden.bs.modal', stopWebcam);
   </script>

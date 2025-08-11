@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website AI Modern</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0d6efd;
+      --light-blue: #e7f5ff;
+      --text-dark: #212529;
+      --text-light: #6c757d;
+      --bg-white: #ffffff;
+      --bg-light-gray: #f8f9fa;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light-gray);
+      color: var(--text-dark);
+      padding-top: 70px; /* Kompensasi untuk navbar fixed-top */
+    }
+    section { padding: 60px 0; }
+    .section-title {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .btn {
+      border-radius: 50px;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    }
+    .btn-info {
+        background-color: transparent;
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+    }
+    .btn-info:hover {
+        background-color: var(--primary-blue);
+        color: white;
+        transform: translateY(-2px);
+    }
+    .contact-card {
+      background-color: var(--bg-white);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      border: none;
+    }
+    footer { background-color: var(--bg-white); }
+    #webcamVideo {
+      transform: scaleX(-1);
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    #label-container {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">AI Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Tentang AI</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="home" class="text-center">
+      <h1 class="display-4 fw-bold">Selamat Datang di Dunia AI</h1>
+      <p class="lead text-muted my-4">Jelajahi bagaimana kecerdasan buatan membentuk masa depan teknologi web yang interaktif.</p>
+      <div>
+        <button class="btn btn-primary btn-lg mx-2" data-bs-toggle="modal" data-bs-target="#demoAiModal">
+          Coba Demo AI
+        </button>
+        <button type="button" class="btn btn-info btn-lg mx-2" data-bs-toggle="modal" data-bs-target="#infoAiModal">
+          Info AI
+        </button>
+      </div>
+    </section>
+    
+    <section id="about" class="bg-white py-5">
+      <div class="container">
+        <h2 class="section-title">Tentang Artificial Intelligence</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="text-center text-muted">Artificial Intelligence (AI) adalah simulasi kecerdasan manusia yang diproses oleh mesin, terutama sistem komputer. Aplikasi spesifik AI mencakup sistem pakar, pemrosesan bahasa alami, pengenalan suara, dan visi mesin.</p>
+            <p class="text-center text-muted">AI memiliki potensi besar untuk mengubah berbagai aspek kehidupan kita, mulai dari otomasi tugas-tugas rutin hingga pengembangan solusi inovatif untuk masalah kompleks.</p>
+          </div>
+          <div class="col-md-6">
+            <img src="https://cdn.pixabay.com/photo/2023/02/05/01/09/artificial-intelligence-7768524_960_720.jpg" alt="Ilustrasi Artificial Intelligence" class="img-fluid rounded shadow-sm">
+          </div>
+        </div>
+      </div>
+  </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card">
+                        <form id="contactForm" class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- modal untuk demo AI -->
+  <div class="modal fade" id="demoAiModal" tabindex="-1" aria-labelledby="demoAiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="demoAiModalLabel">Demo Deteksi Objek via Webcam</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <div id="webcam-wrapper" class="mb-3">
+            <p>Klik "Mulai Demo" untuk mengaktifkan kamera.</p>
+            <video id="webcamVideo" autoplay playsinline muted style="display: none;"></video>
+          </div>
+          <div id="label-container"></div>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+          <button id="mqttButton" type="button" class="btn btn-success" disabled>Kirim ke MQTT</button>
+          <button id="startButton" type="button" class="btn btn-primary">Mulai Demo</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- modal untuk informasi AI -->
+  <div class="modal fade" id="infoAiModal" tabindex="-1" aria-labelledby="aiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="aiModalLabel">Informasi Tentang AI</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          AI (Artificial Intelligence) adalah teknologi yang memungkinkan komputer untuk belajar dari data, mengenali pola, dan mengambil keputusan secara otomatis dengan campur tangan manusia yang minimal.
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Mengerti</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4 mt-5 bg-white">
+    <p class="text-muted mb-0">© 2025 - Naufal Avrilzal Irawan ✨</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+  <script type="text/javascript">
+    const demoModal = document.getElementById('demoAiModal');
+    const startButton = document.getElementById("startButton");
+    const mqttButton = document.getElementById("mqttButton");
+    const labelContainer = document.getElementById("label-container");
+    const webcamVideo = document.getElementById("webcamVideo");
+    const webcamWrapper = document.getElementById("webcam-wrapper");
+
+    const modelPath = "https://teachablemachine.withgoogle.com/models/XKucgsRUS/";
+    let model, maxPredictions;
+    let latestDetectedClass = "";
+    let stream;
+
+    const client = mqtt.connect("wss://public:public@public.cloud.shiftr.io", {
+      clientId: "prototype-modern-client",
+    });
+    client.on("connect", () => console.log("Terhubung ke broker MQTT shiftr.io"));
+
+    async function init() {
+      startButton.disabled = true;
+      startButton.innerText = "Memuat Model...";
+      
+      const modelURL = modelPath + "model.json";
+      const metadataURL = modelPath + "metadata.json";
+
+      try {
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+      } catch (err) {
+        console.error("Gagal memuat model:", err);
+        alert("Gagal memuat model AI. Pastikan file di folder 'my_model' lengkap dan benar.");
+        startButton.disabled = false;
+        startButton.innerText = "Mulai Demo";
+        return;
+      }
+      
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        webcamVideo.srcObject = stream;
+        webcamVideo.style.display = 'block';
+        webcamWrapper.querySelector('p').style.display = 'none';
+
+        webcamVideo.addEventListener('loadeddata', () => {
+          console.log("Webcam stream berhasil didapatkan!");
+          startButton.style.display = 'none';
+          window.requestAnimationFrame(loop);
+        });
+      } catch (err) {
+        console.error("Gagal memulai webcam:", err);
+        alert("Tidak bisa memulai webcam. Pastikan tidak ada aplikasi lain yang menggunakan dan izin sudah diberikan.");
+        startButton.disabled = false;
+        startButton.innerText = "Mulai Demo";
+      }
+    }
+
+    async function loop() {
+      if (!model) return;
+      await predict();
+      if (stream && stream.active) {
+        window.requestAnimationFrame(loop);
+      }
+    }
+
+    async function predict() {
+      const prediction = await model.predict(webcamVideo);
+      let highestProb = 0;
+      let detectedClass = "";
+      
+      // variabel string kosong untuk menampung semua hasil
+      let resultsHTML = "";
+
+      for (let i = 0; i < maxPredictions; i++) {
+          // Menambahkan setiap hasil prediksi ke dalam variabel string, dibungkus div
+          resultsHTML += `<div>${prediction[i].className}: ${prediction[i].probability.toFixed(2)}</div>`;
+
+          // Logika untuk mencari probabilitas tertinggi
+          if (prediction[i].probability > highestProb) {
+              highestProb = prediction[i].probability;
+              detectedClass = prediction[i].className;
+          }
+      }
+
+      // Setelah loop selesai, tampilkan semua hasil sekaligus
+      labelContainer.innerHTML = resultsHTML;
+
+      // Logika untuk tombol MQTT
+      if (highestProb > 0.9) {
+          latestDetectedClass = detectedClass;
+          mqttButton.disabled = false;
+      } else {
+          latestDetectedClass = "";
+          mqttButton.disabled = true;
+      }
+    }
+    
+    function stopWebcam() {
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+            console.log("Webcam dimatikan.");
+            stream = null;
+            startButton.style.display = 'block';
+            startButton.disabled = false;
+            startButton.innerText = "Mulai Demo";
+            webcamVideo.style.display = 'none';
+            webcamWrapper.querySelector('p').style.display = 'block';
+            labelContainer.innerHTML = '';
+            mqttButton.disabled = true;
+        }
+    }
+
+    startButton.addEventListener("click", init);
+    mqttButton.addEventListener("click", () => {
+      client.publish("hello", latestDetectedClass);
+      alert(`Pesan "${latestDetectedClass}" berhasil dikirim ke MQTT!`);
+    });
+    demoModal.addEventListener('hidden.bs.modal', stopWebcam);
+  </script>
+</body>
+</html>
